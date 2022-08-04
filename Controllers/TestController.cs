@@ -25,10 +25,10 @@ namespace Idea.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TestModel>>> GetModels()
         {
-          if (_context.Models == null)
-          {
-              return NotFound();
-          }
+            if (_context.Models == null)
+            {
+                return NotFound();
+            }
             return await _context.Models.ToListAsync();
         }
 
@@ -36,10 +36,10 @@ namespace Idea.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<TestModel>> GetTestModel(int id)
         {
-          if (_context.Models == null)
-          {
-              return NotFound();
-          }
+            if (_context.Models == null)
+            {
+                return NotFound();
+            }
             var testModel = await _context.Models.FindAsync(id);
 
             if (testModel == null)
@@ -86,10 +86,10 @@ namespace Idea.Controllers
         [HttpPost]
         public async Task<ActionResult<TestModel>> PostTestModel(TestModel testModel)
         {
-          if (_context.Models == null)
-          {
-              return Problem("Entity set 'DataContext.Models'  is null.");
-          }
+            if (_context.Models == null)
+            {
+                return Problem("Entity set 'DataContext.Models'  is null.");
+            }
             _context.Models.Add(testModel);
             await _context.SaveChangesAsync();
 
